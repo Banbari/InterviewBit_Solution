@@ -1,3 +1,22 @@
+/*
+public class Solution {
+	public int firstMissingPositive(ArrayList<Integer> a) {
+	    boolean track[]=new boolean[a.size()+1];
+	    for(int i=0;i<a.size();i++)
+	    {
+	        if(a.get(i)>=0 && a.get(i)<=a.size())
+	        track[a.get(i)]=true;
+	    }
+	    for(int i=1;i<track.length;i++)
+	    if(!track[i])
+	    return i;
+	    return track.length;
+	}
+}
+*/
+
+
+
 public class Solution {
 	public int firstMissingPositive(ArrayList<Integer> a) {
 	    //TreeSet<Integer> ar=new TreeSet();
