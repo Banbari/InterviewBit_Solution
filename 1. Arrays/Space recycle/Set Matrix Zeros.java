@@ -1,26 +1,39 @@
-void setZeroes(int** A, int n11, int n12) {
-    int i,j,k,s;
-    int row[n11];
-    int col[n12];
-    for(i=0;i<n11;i++)
-    {
-        for(j=0;j<n12;j++)
-        {
-            if(A[i][j]==0)
-            {
-                row[i]=1;
-                col[j]=1;
-            }
-        }
-    }
-    for(k=0;k<n11;k++)
-    {
-        for(s=0;s<n12;s++)
-        {
-            if((row[k]==1)||(col[s]==1))
-            {
-                A[k][s]=0;
-            }
-        }
-    }
+public class Solution {
+	public void setZeroes(ArrayList<ArrayList<Integer>> ar) {
+	    boolean row[]=new boolean[ar.size()];
+	    boolean column[]=new boolean[ar.get(0).size()];
+	   for(int i=0;i<ar.size();i++)
+	    {
+	        for(int j=0;j<ar.get(i).size();j++)
+	        {
+	            if(ar.get(i).get(j)==0)
+	            {
+	                row[i]=true;
+	                column[j]=true;
+	            }
+	        }
+	    }
+	    for(int i=0;i<row.length;i++)
+	    {
+	        if(row[i])
+	        {
+	            for(int j=0;j<column.length;j++)
+	            {
+	                ar.get(i).set(j,0);
+	            }
+	            row[i]=false;
+	        }
+	    }
+	    for(int i=0;i<column.length;i++)
+	    {
+	        if(column[i])
+	        {
+	            for(int j=0;j<row.length;j++)
+	            {
+	                ar.get(j).set(i,0);
+	            }
+	            column[i]=false;
+	        }
+	    }
+	}
 }
